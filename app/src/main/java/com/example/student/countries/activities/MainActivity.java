@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.example.student.countries.R;
 import com.example.student.countries.frags.FragCountries;
+import com.example.student.countries.frags.FragInfo;
+import com.example.student.countries.frags.FragPlaces;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,10 +25,10 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_countries:
-
+                    getFragCountries();
                     return true;
                 case R.id.navigation_places:
-
+                    getFragPlaces();
                     return true;
                 case R.id.navigation_info:
                     return true;
@@ -45,10 +47,28 @@ public class MainActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
 
+        getFragCountries();
+    }
+
+    private void getFragCountries() {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         ft.replace(R.id.content, FragCountries.getInstance());
         ft.commit();
     }
+
+    private void getFragPlaces() {
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.content, FragPlaces.getInstance());
+        ft.commit();
+    }
+
+//    private void getFragInfo() {
+//        FragmentManager fm = getSupportFragmentManager();
+//        FragmentTransaction ft = fm.beginTransaction();
+//        ft.replace(R.id.content, FragInfo.getInstance());
+//        ft.commit();
+//    }
 
 }
