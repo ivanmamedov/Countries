@@ -11,12 +11,6 @@ import com.example.student.countries.R;
 
 public class FragPlace extends Fragment {
 
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
     View rootView;
     public static FragPlace instance;
 
@@ -25,16 +19,12 @@ public class FragPlace extends Fragment {
     public FragPlace() {
     }
 
-    public static FragPlace newInstance(String param1, String param2) {
+    public static FragPlace newInstance() {
         FragPlace fragment = new FragPlace();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
         return fragment;
     }
 
-    public static FragPlace getInstance(String param1, String param2) {
+    public static FragPlace getInstance() {
         /*FragCountries fragment = new FragCountries();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
@@ -45,7 +35,7 @@ public class FragPlace extends Fragment {
             return instance;
         }
         else {
-            instance = newInstance(param1,param2);
+            instance = newInstance();
             return  instance;
         }
 
@@ -53,10 +43,6 @@ public class FragPlace extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override

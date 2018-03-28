@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import com.example.student.countries.R;
 
 
-public class FragCountrie extends Fragment {
+public class FragCountry extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -18,15 +18,15 @@ public class FragCountrie extends Fragment {
     private String mParam1;
     private String mParam2;
     View rootView;
-    public static FragCountrie instance;
+    public static FragCountry instance;
 
 
 
-    public FragCountrie() {
+    public FragCountry() {
     }
 
-    public static FragCountrie newInstance(String param1, String param2) {
-        FragCountrie fragment = new FragCountrie();
+    public static FragCountry newInstance(String param1, String param2) {
+        FragCountry fragment = new FragCountry();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -34,7 +34,7 @@ public class FragCountrie extends Fragment {
         return fragment;
     }
 
-    public static FragCountrie getInstance(String param1, String param2) {
+    public static FragCountry getInstance(String param1, String param2) {
         /*FragCountries fragment = new FragCountries();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
@@ -48,8 +48,8 @@ public class FragCountrie extends Fragment {
             instance = newInstance(param1,param2);
             return  instance;
         }
-
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,10 +65,5 @@ public class FragCountrie extends Fragment {
         rootView = inflater.inflate(R.layout.frag_countries, container, false);
 
         return rootView;
-
     }
-
-
-
-
 }
