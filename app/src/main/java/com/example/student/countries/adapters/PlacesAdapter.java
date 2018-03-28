@@ -1,6 +1,9 @@
 package com.example.student.countries.adapters;
 
 import android.content.Context;
+import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,8 +14,10 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.student.countries.R;
+import com.example.student.countries.activities.MainActivity;
 import com.example.student.countries.classes.Country;
 import com.example.student.countries.classes.Place;
+import com.example.student.countries.frags.FragPager;
 
 import java.util.ArrayList;
 
@@ -46,7 +51,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         final Place obj = list.get(position);
         switch (obj.getType()) {
             case 1:
@@ -57,7 +62,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                 ((PlaceHolder) holder).cv.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
+                        getFragPager(position);
                     }
                 });
                 break;
@@ -70,7 +75,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                 ((PlaceHolder) holder).cv.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
+                        getFragPager(position);
                     }
                 });
                 break;
@@ -84,7 +89,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                 ((PlaceHolder) holder).cv.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
+                        getFragPager(position);
                     }
                 });
                 break;
@@ -122,5 +127,17 @@ public class PlacesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             imageView1 = itemView.findViewById(R.id.imageView1);
             imageView2 = itemView.findViewById(R.id.imageView2);
         }
+    }
+
+    public void getFragPager(int position){
+        Bundle bundle = new Bundle();
+        bundle.putString("identificator", "place");
+        bundle.putInt("position", position);
+        FragPager fragPager = FragPager.getInstance();
+        fragPager.setArguments(bundle);
+        FragmentManager fm = ((MainActivity) context).getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.content, fragPager);
+        ft.commit();
     }
 }

@@ -1,6 +1,9 @@
 package com.example.student.countries.adapters;
 
 import android.content.Context;
+import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,7 +15,10 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.student.countries.R;
+import com.example.student.countries.activities.MainActivity;
 import com.example.student.countries.classes.Country;
+import com.example.student.countries.frags.FragCountries;
+import com.example.student.countries.frags.FragPager;
 
 import java.util.ArrayList;
 
@@ -35,7 +41,7 @@ public class CountriesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         final Country obj = list.get(position);
         ((CountryHolder) holder).tvCountry.setText(obj.getName());
         ((CountryHolder) holder).tvContinent.setText(obj.getContinent());
@@ -44,7 +50,15 @@ public class CountriesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         ((CountryHolder) holder).cv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Bundle bundle = new Bundle();
+                bundle.putString("identificator", "country");
+                bundle.putInt("position", position);
+                FragPager fragPager = FragPager.getInstance();
+                fragPager.setArguments(bundle);
+                FragmentManager fm = ((MainActivity) context).getSupportFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.replace(R.id.content, fragPager);
+                ft.commit();
             }
         });
     }
