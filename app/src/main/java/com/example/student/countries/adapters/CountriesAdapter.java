@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -53,7 +54,7 @@ public class CountriesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 Bundle bundle = new Bundle();
                 bundle.putString("identificator", "country");
                 bundle.putInt("position", position);
-                FragPager fragPager = FragPager.getInstance();
+                FragPager fragPager = new FragPager();//.getInstance();
                 fragPager.setArguments(bundle);
                 FragmentManager fm = ((MainActivity) context).getSupportFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
@@ -61,6 +62,8 @@ public class CountriesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 ft.commit();
             }
         });
+
+
     }
 
     @Override

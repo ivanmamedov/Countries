@@ -34,7 +34,7 @@ public class Country implements Serializable {
         this.isoCod = isoCod;
         this.domen = domen;
         this.numbercode = numbercode;
-        this.coatUrl = coatUrl;
+        this.coatUrl = BASE_URL + coatUrl;
     }
 
     public String getContinent() {

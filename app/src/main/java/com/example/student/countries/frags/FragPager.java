@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +28,7 @@ public class FragPager extends Fragment {
     View rootView;
     public static FragPager instance;
     ViewPager viewPager;
-    String identificator;
+    String identificator = "country";
     int position;
     ArrayList<Country> listCountries;
     ArrayList<Place> listPlaces;
@@ -65,6 +66,9 @@ public class FragPager extends Fragment {
         rootView = inflater.inflate(R.layout.frag_pager, container, false);
 
         viewPager = rootView.findViewById(R.id.view_pager);
+
+
+        new LoadCountries().execute();
 
 
         return rootView;
