@@ -28,7 +28,7 @@ public class FragPager extends Fragment {
     View rootView;
     public static FragPager instance;
     ViewPager viewPager;
-    String identificator = "country";
+    String identificator;
     int position;
     ArrayList<Country> listCountries;
     ArrayList<Place> listPlaces;
@@ -68,7 +68,14 @@ public class FragPager extends Fragment {
         viewPager = rootView.findViewById(R.id.view_pager);
 
 
-        new LoadCountries().execute();
+        switch (identificator) {
+            case "place":
+                new LoadPlaces().execute();
+                break;
+            case "country":
+                new LoadCountries().execute();
+                break;
+        }
 
 
         return rootView;
@@ -93,19 +100,23 @@ public class FragPager extends Fragment {
                 case "place":
                     Bundle bundle1 = new Bundle();
                     bundle1.putSerializable("place", listPlaces.get(position));
-                    Fragment fragment1 = new FragCountry();
+                    Fragment fragment1 = new FragPlace();
                     fragment1.setArguments(bundle1);
                     return fragment1;
-                default: return null;
+                default:
+                    return null;
             }
         }
 
         @Override
         public int getCount() {
             switch (identificator) {
-                case "country": return listCountries.size();
-                case "place": return listPlaces.size();
-                default: return 0;
+                case "country":
+                    return listCountries.size();
+                case "place":
+                    return listPlaces.size();
+                default:
+                    return 0;
             }
 
         }

@@ -93,9 +93,21 @@ public class PlacesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                     }
                 });
                 break;
-
         }
-
+        ((PlaceHolder) holder).cv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putString("identificator", "place");
+                bundle.putInt("position", position);
+                FragPager fragPager = new FragPager();//.getInstance();
+                fragPager.setArguments(bundle);
+                FragmentManager fm = ((MainActivity) context).getSupportFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.replace(R.id.content, fragPager);
+                ft.commit();
+            }
+        });
     }
 
     @Override
