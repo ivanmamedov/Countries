@@ -1,158 +1,165 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.student.countries.frags.FragCountries">
+    tools:context="com.example.student.countries.frags.FragPlaces">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <!-- PLACE HEADER -->
-        <android.support.v7.widget.CardView
-            android:id="@+id/header"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="3dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:id="@+id/ll"
+            <!-- PLACE HEADER -->
+            <android.support.v7.widget.CardView
+                android:id="@+id/header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:orientation="vertical">
 
-                <android.support.v4.view.ViewPager
+                <LinearLayout
+                    android:id="@+id/ll"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:id="@+id/placeImagePager">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                    <ImageView
+                    <android.support.v4.view.ViewPager
+                        android:id="@+id/placeImagePager"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:id="@+id/placePagerImage"/>
+                        android:layout_height="200dp">
 
-                </android.support.v4.view.ViewPager>
+                        <ImageView
+                            android:id="@+id/placePagerImage"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                    </android.support.v4.view.ViewPager>
+
+                    <TextView
+                        android:id="@+id/placeTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/placeTitle"
+                        android:layout_margin="10dp"
+                        android:text="Место"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <!-- FACTS ABOUT PLACE -->
+            <android.support.v7.widget.CardView
+                android:id="@+id/values"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_toEndOf="@+id/header"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/placeContinent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_margin="10dp"
+                            android:src="@drawable/ic_continent_black_24dp"
+                            android:tint="@android:color/darker_gray" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvPlaceContinent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:textColor="@android:color/black" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:text="Континент" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/placeCountry"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_margin="10dp"
+                            android:src="@drawable/ic_country_black_24dp"
+                            android:tint="@android:color/darker_gray" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvPlaceCountry"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:textColor="@android:color/black" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:text="Страна" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <!-- AN ARTICLE ABOUT PLACE -->
+            <android.support.v7.widget.CardView
+                android:id="@+id/info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_toEndOf="@+id/values"
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_margin="10dp"
-                    android:id="@+id/placeTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/placeTitle"
-                    android:text="Место"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
-
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-        <!-- FACTS ABOUT PLACE -->
-        <android.support.v7.widget.CardView
-            android:id="@+id/values"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="3dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_toEndOf="@+id/header"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <LinearLayout
+                    android:id="@+id/placeArticle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:orientation="horizontal">
+                    android:text="Bunch of information about country." />
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
 
-                    <ImageView
-                        android:id="@+id/placeContinent"
-                        android:tint="@android:color/darker_gray"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_margin="10dp"
-                        android:src="@drawable/ic_continent_black_24dp" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/tvPlaceContinent"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@android:color/black"
-                            android:layout_margin="5dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Континент"
-                            android:layout_margin="5dp" />
-                    </LinearLayout>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/placeCountry"
-                        android:tint="@android:color/darker_gray"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_margin="10dp"
-                        android:src="@drawable/ic_country_black_24dp" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/tvPlaceCountry"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@android:color/black"
-                            android:layout_margin="5dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Страна"
-                            android:layout_margin="5dp" />
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-        <!-- AN ARTICLE ABOUT PLACE -->
-        <android.support.v7.widget.CardView
-            android:id="@+id/info"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="3dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_toEndOf="@+id/values"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Bunch of information about country."
-                android:layout_margin="10dp"
-                android:id="@+id/placeArticle"/>
-        </android.support.v7.widget.CardView>
-    </LinearLayout>
-
-</FrameLayout>
+    </FrameLayout>
+</ScrollView>
