@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "721249771776",
+    "firebase_url": "https://countries-8dc05.firebaseio.com",
+    "project_id": "countries-8dc05",
+    "storage_bucket": "countries-8dc05.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:721249771776:android:5441f4582fa666c5",
+        "android_client_info": {
+          "package_name": "com.example.student.countries"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "721249771776-jpbapaulp4mfj1qucsv1tffmd8i01pvg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7ubAvvWFEzEcHHzQo8huMYRQwR3KUHGA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

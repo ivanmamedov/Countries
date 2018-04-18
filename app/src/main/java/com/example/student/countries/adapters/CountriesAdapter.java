@@ -20,9 +20,9 @@ import com.example.student.countries.activities.MainActivity;
 import com.example.student.countries.classes.Country;
 import com.example.student.countries.frags.FragCountries;
 import com.example.student.countries.frags.FragPager;
+import com.example.student.countries.utils.Settings;
 
 import java.util.ArrayList;
-
 
 
 public class CountriesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -30,7 +30,7 @@ public class CountriesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     Context context;
     ArrayList<Country> list;
 
-    public CountriesAdapter (Context context, ArrayList<Country> list){
+    public CountriesAdapter(Context context, ArrayList<Country> list) {
         this.context = context;
         this.list = list;
     }
@@ -51,6 +51,9 @@ public class CountriesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         ((CountryHolder) holder).cv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                Settings.clickCounter(context);
+
                 Bundle bundle = new Bundle();
                 bundle.putString("identificator", "country");
                 bundle.putInt("position", position);
@@ -76,6 +79,7 @@ public class CountriesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         private final TextView tvCountry;
         private final TextView tvContinent;
         private final ImageView imageView;
+
         public CountryHolder(View itemView) {
             super(itemView);
             cv = itemView.findViewById(R.id.cv);
