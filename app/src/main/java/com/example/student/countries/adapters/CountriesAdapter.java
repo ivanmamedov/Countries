@@ -62,6 +62,7 @@ public class CountriesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 FragmentManager fm = ((MainActivity) context).getSupportFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
                 ft.replace(R.id.content, fragPager);
+                ft.addToBackStack(null);
                 ft.commit();
             }
         });
