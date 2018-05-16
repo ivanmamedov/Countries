@@ -79,7 +79,7 @@ public class JsonParser {
         }
 
 
-        Collections.shuffle(listPlaces);
+        //Collections.shuffle(listPlaces);
         return listPlaces;
     }
 
